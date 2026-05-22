@@ -1,0 +1,22 @@
+[package]
+name = "netonet-node"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Desktop netonet node: creates a TUN device and joins the overlay (Linux/macOS/Windows)."
+
+[[bin]]
+name = "netonet"
+path = "src/main.rs"
+
+[dependencies]
+netonet-core = { path = "../netonet-core" }
+iroh.workspace = true
+tun-rs.workspace = true
+tokio.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+clap.workspace = true
+hex.workspace = true

@@ -1,0 +1,15 @@
+# Example netonet node configuration (host B). See node-a.toml for details.
+
+# secret_key = "0000...."
+
+relay_url = "http://relay.example.com:3340"
+
+[interface]
+name = "netonet0"
+ip = "10.7.0.2"
+prefix = 24
+mtu = 1380
+
+[[peers]]
+endpoint_id = "REPLACE_WITH_HOST_A_PUBLIC_KEY"
+ip = "10.7.0.1"
