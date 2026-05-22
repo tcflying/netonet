@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/auto-commit.sh",
+            "timeout": 120,
+            "statusMessage": "Auto-committing and pushing changes..."
+          }
+        ]
+      }
+    ]
+  }
+}

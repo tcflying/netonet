@@ -1,0 +1,24 @@
+[package]
+name = "netonet-mobile"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.91"
+license = "MIT OR Apache-2.0"
+description = "Android JNI bindings for netonet: runs the overlay engine on a VpnService TUN fd."
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+netonet-core = { path = "../netonet-core" }
+iroh = "1.0.0-rc.0"
+tun-rs = { version = "2", features = ["async_tokio"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time"] }
+anyhow = "1"
+tracing = { version = "0.1", features = ["log"] }
+toml = "0.8"
+jni = "0.21"
+
+[target.'cfg(target_os = "android")'.dependencies]
+android_logger = "0.14"
+log = "0.4"

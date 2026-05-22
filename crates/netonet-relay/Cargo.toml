@@ -1,0 +1,19 @@
+[package]
+name = "netonet-relay"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Self-hosted Iroh relay server for netonet."
+
+[[bin]]
+name = "netonet-relay"
+path = "src/main.rs"
+
+[dependencies]
+iroh-relay = { workspace = true, features = ["server"] }
+tokio.workspace = true
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+clap.workspace = true

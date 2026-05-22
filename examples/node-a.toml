@@ -1,0 +1,22 @@
+# Example netonet node configuration (host A).
+#
+# Generate a stable identity by running the node once without `secret_key`;
+# it prints a value you can paste here. Both nodes must point at the same relay.
+
+# 32-byte node secret key as 64 hex chars. Omit to generate an ephemeral one.
+# secret_key = "0000...."
+
+# Self-hosted relay both peers share. Run `netonet-relay` somewhere reachable.
+relay_url = "http://relay.example.com:3340"
+
+[interface]
+name = "netonet0"
+ip = "10.7.0.1"
+prefix = 24
+mtu = 1380
+
+# The other end of the overlay. `endpoint_id` is host B's public key
+# (printed by host B at startup), `ip` is its address on the 10.7.0.0/24 overlay.
+[[peers]]
+endpoint_id = "REPLACE_WITH_HOST_B_PUBLIC_KEY"
+ip = "10.7.0.2"

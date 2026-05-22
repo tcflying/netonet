@@ -1,0 +1,32 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/netonet-core",
+    "crates/netonet-node",
+    "crates/netonet-relay",
+]
+# netonet-mobile is built on its own for Android targets and is therefore
+# excluded from the default workspace build (it produces a cdylib that is
+# only meaningful when cross-compiled with the Android NDK).
+exclude = ["crates/netonet-mobile"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.91"
+license = "MIT OR Apache-2.0"
+
+[workspace.dependencies]
+iroh = "1.0.0-rc.0"
+iroh-relay = "1.0.0-rc.0"
+tun-rs = { version = "2", features = ["async_tokio"] }
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+toml = "0.8"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+bytes = "1"
+clap = { version = "4", features = ["derive"] }
+hex = "0.4"
+dashmap = "6"
